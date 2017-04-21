@@ -5,6 +5,8 @@ class MessagesController < ApplicationController
   def create
     if message.save
       redirect_to root_path
+    else
+      render :index
     end
   end
 

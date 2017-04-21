@@ -15,3 +15,5 @@
 //= require jquery_ujs
 //= require js.cookie
 //= require users
+//= require message
+//= require ready

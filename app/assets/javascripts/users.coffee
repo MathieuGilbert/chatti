@@ -1,6 +1,7 @@
 class Chatti.Users
   constructor: ->
     @cookieName = 'current_user'
+    @nameInput = $('#name')
     @setName()
     @storeNameOnBlur()
 
@@ -8,12 +9,20 @@ class Chatti.Users
     Cookies.get(@cookieName)
 
   setName: ->
-    $('#name').val(@currentUser()) if @currentUser()
+    if @currentUser()
+      @nameInput.val(@currentUser())
+    else
+      Chatti.message.disableForm()
 
   storeNameOnBlur: ->
-    $('#name').on 'blur', (e) =>
+    @nameInput.on 'blur', (e) =>
       name = $(e.currentTarget).val()
       if name?.length
         Cookies.set(@cookieName, name)
+        Chatti.message.enableForm()
       else
         Cookies.remove(@cookieName)
+        Chatti.message.disableForm()
+
+  blankName: ->
+    $('#name').val().length is 0
