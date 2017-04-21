@@ -1,0 +1,10 @@
+<h1>Talk Amongst Yourselves</h1>
+
+<%= render 'users/input' %>
+
+<%= form_for message do |f| %>
+  <%= f.text_field :text %>
+  <%= f.submit 'Say it!' %>
+<% end %>
+
+<%= render partial: 'message', collection: messages %>

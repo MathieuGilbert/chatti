@@ -1,0 +1,9 @@
+<hr>
+<div>
+  <strong><%= message.user_name %></strong>
+  @
+  <small><%= message.created_at.in_time_zone.strftime('%H:%M (%Y-%m-%d)') %></small>
+</div>
+<span style="margin-left: 10px;">
+  <%= message.text %>
+</span>
