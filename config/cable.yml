@@ -6,4 +6,6 @@ development: *redis
 
 test: *redis
 
-production: *redis
+production:
+  <<: *redis
+  url: redis://redistogo:ef4d90288133337b5e85f803fb777275@chubb.redistogo.com:9314/
