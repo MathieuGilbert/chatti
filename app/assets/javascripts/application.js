@@ -14,6 +14,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require js.cookie
+//= require cable
 //= require users
 //= require message
 //= require ready

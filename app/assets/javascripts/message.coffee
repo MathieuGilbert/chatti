@@ -4,6 +4,7 @@ class Chatti.Message
     @chatSubmit = @chatForm.find('input[type=submit]')
     @chatInput = @chatForm.find('input[type=text]')
     @preventBlanks()
+    @setupSubmit()
 
   enableForm: ->
     return if @blankInput() or @blankName()
@@ -22,3 +23,9 @@ class Chatti.Message
 
   blankName: ->
     Chatti.users.blankName()
+
+  setupSubmit: ->
+    @chatForm.on 'submit', (e) =>
+      e.preventDefault()
+      Chatti.chat.speak @chatInput.val()
+      @chatInput.val('')
